@@ -18,7 +18,7 @@ public class Main {
             iDsList.add("agent_" + i);
         }
 
-        ThorusTopologyService topologyService = new ThorusTopologyService();
+        CircularTopologyService topologyService = new CircularTopologyService();
         List<Agent> agents = topologyService.prepareTopology(iDsList);
         for (Agent agent: agents){
             System.out.println(agent);
