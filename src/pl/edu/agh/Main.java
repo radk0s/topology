@@ -2,13 +2,14 @@ package pl.edu.agh;
 
 
 import pl.edu.agh.models.Agent;
+import pl.edu.agh.topology.ThorusTopologyService;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
 
-    private static final int AGENTS_NUMBER = 5;
+    private static final int AGENTS_NUMBER = 12;
 
     public static void main(String[] args) {
 
@@ -18,8 +19,14 @@ public class Main {
             iDsList.add("agent_" + i);
         }
 
-        CircularTopologyService topologyService = new CircularTopologyService();
-        List<Agent> agents = topologyService.prepareTopology(iDsList);
+        CircularTopologyService circularTopologyService = new CircularTopologyService();
+        List<Agent> agents = circularTopologyService.prepareTopology(iDsList);
+        for (Agent agent: agents){
+            System.out.println(agent);
+        }
+
+        ThorusTopologyService thorusTopologyService = new ThorusTopologyService();
+        agents = thorusTopologyService.prepareTopology(iDsList);
         for (Agent agent: agents){
             System.out.println(agent);
         }

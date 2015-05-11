@@ -40,8 +40,10 @@ public class AgentImpl implements Agent {
 
     private String printSurroundingAgents() {
         StringBuilder stringBuilder = new StringBuilder();
-        for(String dir: this.getSurroundingAgents().keySet()){
-            stringBuilder.append("(dir: " + dir + ", agent: " + this.getSurroundingAgents().get(dir).getId() + "),");
+        if (this.getSurroundingAgents() != null){
+            for(String dir: this.getSurroundingAgents().keySet()){
+                stringBuilder.append("(" + dir + ", " + this.getSurroundingAgents().get(dir).getId() + "),");
+            }
         }
         return stringBuilder.toString();
     }
